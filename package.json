@@ -1,0 +1,26 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "The Best way to watch a videos.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sexychoco/wetube-reloaded.git"
+  },
+  "scripts": {
+    "dev": "babel-node index.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sexychoco/wetube-reloaded/issues"
+  },
+  "homepage": "https://github.com/sexychoco/wetube-reloaded#readme",
+  "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/node": "^7.16.7",
+    "@babel/preset-env": "^7.16.7"
+  }
+}
