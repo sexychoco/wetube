@@ -26,6 +26,8 @@ app.use(
 
 app.use(localsMiddleware);
 app.use("/uploads", express.static("uploads"));
+///사람들이 assets안에 있는 폴더를 열람할 수 있게 부탁///
+app.use("/static", express.static("assets"));
 app.use("/", rootRouter);
 app.use("/users", userRouter);
 app.use("/videos", videoRouter);
