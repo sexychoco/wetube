@@ -102,6 +102,12 @@ const handleMouseLeave = () => {
   controlsTimeout = setTimeout(hideControls, 3000);
 };
 
+const handleSpacebar = (event) => {
+  if (event.key === " ") {
+    handlePlayClick();
+  }
+};
+
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMuteClick);
 volumeRange.addEventListener("input", handleVolumeChange);
@@ -111,3 +117,4 @@ timeline.addEventListener("input", handleTimelineChange);
 fullScreenBtn.addEventListener("click", handleFullScreen);
 videoConatiner.addEventListener("mousemove", handleMouseMove);
 videoConatiner.addEventListener("mouseleave", handleMouseLeave);
+document.addEventListener("keydown", handleSpacebar);
