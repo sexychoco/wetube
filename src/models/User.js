@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
 import bcrypt from "bcrypt";
+import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
   email: { type: String, required: true, unique: true },
@@ -20,5 +20,4 @@ userSchema.pre("save", async function () {
 });
 
 const User = mongoose.model("User", userSchema);
-
 export default User;

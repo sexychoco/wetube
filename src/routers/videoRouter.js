@@ -1,9 +1,9 @@
 import express from "express";
 import {
   watch,
+  getUpload,
   getEdit,
   postEdit,
-  getUpload,
   postUpload,
   deleteVideo,
 } from "../controllers/videoController";
@@ -11,11 +11,6 @@ import { protectorMiddleware, videoUpload } from "../middlewares";
 
 const videoRouter = express.Router();
 
-videoRouter
-  .route("/upload")
-  .all(protectorMiddleware)
-  .get(getUpload)
-  .post(videoUpload.fields([{ name: "video" }, { name: "thumb" }]), postUpload);
 videoRouter.get("/:id([0-9a-f]{24})", watch);
 videoRouter
   .route("/:id([0-9a-f]{24})/edit")
@@ -26,6 +21,10 @@ videoRouter
   .route("/:id([0-9a-f]{24})/delete")
   .all(protectorMiddleware)
   .get(deleteVideo);
-///컨트롤러를 만든 뒤 라우터를 만들어준다. 그리고 거기에 컨트롤러 사용///
-///그 다음 view 파일에 upload 템플릿을 base를 기반으로 생성///
+videoRouter
+  .route("/upload")
+  .all(protectorMiddleware)
+  .get(getUpload)
+  .post(videoUpload.fields([{ name: "video" }, { name: "thumb" }]), postUpload);
+
 export default videoRouter;

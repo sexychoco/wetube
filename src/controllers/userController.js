@@ -1,5 +1,4 @@
 import User from "../models/User";
-import Video from "../models/Video";
 import fetch from "node-fetch";
 import bcrypt from "bcrypt";
 
@@ -10,7 +9,7 @@ export const postJoin = async (req, res) => {
   if (password !== password2) {
     return res.status(400).render("join", {
       pageTitle,
-      errorMessage: "Password confirmation does not match",
+      errorMessage: "Password confirmation does not match.",
     });
   }
   const exists = await User.exists({ $or: [{ username }, { email }] });
@@ -31,14 +30,13 @@ export const postJoin = async (req, res) => {
     return res.redirect("/login");
   } catch (error) {
     return res.status(400).render("join", {
-      pageTitle: "Upload video",
+      pageTitle: "Upload Video",
       errorMessage: error._message,
     });
   }
 };
-export const getLogin = (req, res) => {
+export const getLogin = (req, res) =>
   res.render("login", { pageTitle: "Login" });
-};
 
 export const postLogin = async (req, res) => {
   const { username, password } = req.body;
@@ -57,7 +55,6 @@ export const postLogin = async (req, res) => {
       errorMessage: "Wrong password",
     });
   }
-  ///request session object 에 정보를 저장///
   req.session.loggedIn = true;
   req.session.user = user;
   return res.redirect("/");
@@ -113,6 +110,7 @@ export const finishGithubLogin = async (req, res) => {
       (email) => email.primary === true && email.verified === true
     );
     if (!emailObj) {
+      // set notification
       return res.redirect("/login");
     }
     let user = await User.findOne({ email: emailObj.email });
@@ -140,11 +138,9 @@ export const logout = (req, res) => {
   req.flash("info", "Bye Bye");
   return res.redirect("/");
 };
-
 export const getEdit = (req, res) => {
   return res.render("edit-profile", { pageTitle: "Edit Profile" });
 };
-
 export const postEdit = async (req, res) => {
   const {
     session: {
@@ -219,5 +215,3 @@ export const see = async (req, res) => {
     user,
   });
 };
-
-export const edit = (req, res) => res.send("Edit User");
