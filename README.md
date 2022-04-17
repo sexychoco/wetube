@@ -30,4 +30,10 @@ Frontend + Backend + Deployment
 * Models
 * Relationships
 
+### Result
+[https://wetubeproject.herokuapp.com/](https://wetubeproject.herokuapp.com/)
+![home](https://user-images.githubusercontent.com/95459711/163720777-c504e633-8183-49cf-8f78-c613b55aa11b.jpg)
+![join](https://user-images.githubusercontent.com/95459711/163720787-f7877688-ced2-4588-8cbc-d55f9d7fb283.jpg)
+![upload](https://user-images.githubusercontent.com/95459711/163720779-6bcc1623-5347-43a1-bb94-6417699c419c.jpg)
+
 
